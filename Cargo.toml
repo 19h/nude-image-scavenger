@@ -1,0 +1,32 @@
+[package]
+name = "poo"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+daemonize = { git = "https://github.com/knsd/daemonize.git", version = "0.5.0" }
+image = "0.23.14"
+immeta = "0.4.0"
+kamadak-exif = "0.5.5"
+lazy_static = "1.4.0"
+nude = "0.3.0"
+rayon = "1.6.0"
+walkdir = "2.3.2"
+
+# abort
+
+[profile.release]
+panic = "abort"
+lto = true
+codegen-units = 1
+opt-level = "z"
+strip = "symbols"
+
+[profile.dev]
+panic = "abort"
+lto = true
+codegen-units = 1
+opt-level = "z"
+strip = "debuginfo"
